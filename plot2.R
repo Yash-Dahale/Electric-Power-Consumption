@@ -27,6 +27,7 @@ df <- cbind(dateTime,df)
 df$dateTime <- as.POSIXct(dateTime)
 
 ##plot 2
+par(mfrow=c(1,1),mar=c(5,4.5,4,2))
 plot(df$Global_active_power~df$dateTime,type = "l",xlab = "",ylab = "Global Active power (kilowatts)")
 
 ##dev.off()

@@ -27,4 +27,8 @@ df <- cbind(dateTime,df)
 df$dateTime <- as.POSIXct(dateTime)
 
 ##plot1
-hist(df$Global_active_power, col = "red", xlab = "Global Active Power (kilowatts)",main = "Global Active Power")
+par(mfrow=c(1,1),mar=c(5,4.5,4,2))
+hist(df$Global_active_power, col = "red",
+     xlab = "Global Active Power (kilowatts)",
+     main = "Global Active Power")
+##dev.off()

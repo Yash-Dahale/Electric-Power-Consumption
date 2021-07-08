@@ -27,11 +27,24 @@ df <- cbind(dateTime,df)
 df$dateTime <- as.POSIXct(dateTime)
 
 
-##Plot 3
+##Plot 3 Method 1
+par(mfrow=c(1,1),mar=c(2,4,1,1))
+plot(df$dateTime,df$Sub_metering_1,
+     ylab = "Energy Sub Metering",xlab = "",
+     col = "black",type = "l")
+points(df$dateTime,df$Sub_metering_2,col = "red", type = "l")
+points(df$dateTime,df$Sub_metering_3,col = "blue", type = "l")
+legend("topright", lwd=1, col=c("black", "red", "blue"),
+       legend=names(df[,6:8]))
+
+
+##plot 3 Method 2
+
+par(mar = c(2,4,1,1))
 with(df,
      {
        plot(Sub_metering_1~dateTime,type = "l",
-       ylab = "Global Active Power (kilowatts)",xlab = "")
+       ylab = "Energy sub metering",xlab = "")
        lines(Sub_metering_2~dateTime,col = "Red")
        lines(Sub_metering_3~dateTime,col = "blue")
        
@@ -39,3 +52,5 @@ with(df,
 )
 legend("topright", col=c("black", "red", "blue"), lwd=c(1,1,1), 
        c("Sub_metering_1", "Sub_metering_2", "Sub_metering_3"))
+
+##dev.off()

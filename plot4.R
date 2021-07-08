@@ -34,7 +34,8 @@ df$dateTime <- as.POSIXct(dateTime)
 
 
 ##plot 4
-par(mfrow=c(2,2), mar=c(4,4,2,1), oma=c(0,0,2,0))
+
+par(mfrow=c(2,2),mar=c(2, 4, 1, 1), oma=c(0,0,2,0))
 with(df, {
   plot(Global_active_power~dateTime, type="l", 
        ylab="Global Active Power (kilowatts)", xlab="")
@@ -44,8 +45,10 @@ with(df, {
        ylab="Global Active Power (kilowatts)", xlab="")
   lines(Sub_metering_2~dateTime,col='Red')
   lines(Sub_metering_3~dateTime,col='Blue')
-  legend("topright", col=c("black", "red", "blue"), lty=1, lwd=2, bty="n",
-         legend=c("Sub_metering_1", "Sub_metering_2", "Sub_metering_3"))
+  legend("topright", col=c("black", "red", "blue"), 
+         lty=1, lwd=2, bty="n",
+         legend=c("Sub_metering_1", "Sub_metering_2", 
+                  "Sub_metering_3"))
   plot(Global_reactive_power~dateTime, type="l", 
        ylab="Global Rective Power (kilowatts)",xlab="")
 })
